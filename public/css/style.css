@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.navbar {
+  height: 5rem;
+  background: #ffffff;
+}
+.fa-compass {
+  color: #ff385c;
+  font-size: 2rem;
+}
+.nav-link {
+  color: #222222 !important;
+}
+/* footer */
+.f-info_links {
+  width: 100%;
+}
+
+.fInfo_brand,
+.finfo_social,
+.f-info_links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.finfo_social i {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.f-info_links a {
+  text-decoration: none;
+  list-style: none;
+  color: #222222 !important;
+  transition: 0.2s linear;
+}
+.f-info_links a:hover {
+  text-decoration: underline;
+}
+.footerInformation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #ecebeb;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.book-nowBtn {
+  background-color: rgb(18, 146, 11);
+  color: white;
+}
+.book-nowBtn:hover {
+  background-color: rgb(15, 100, 10);
+  color: white;
+}
+
+.containt_description {
+  font-size: 0.9rem;
+  color: rgb(156, 144, 144);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  min-width: initial;
+  overflow: initial;
+  text-overflow: initial;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.cardListingTag {
+  text-decoration: none;
+  list-style: none;
+}
+.overlayImg {
+  opacity: 0;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(204, 204, 204);
+
+}
+.overlayImg:hover {
+  opacity: 0.2;
+
+}
+.col{
+  box-shadow: 220 9px 109px rgb(0, 0, 0);
+}
+.input{
+  padding: 30px;
+  background: red;
+}

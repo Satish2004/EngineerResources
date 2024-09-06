@@ -3,36 +3,33 @@
   <div class="container py-5">
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
       <% for(let listing of allListings){ %>
-        <a  class="cardListingTag" href="/listings/<%=listing._id %>">
-
+        <a class="cardListingTag" href="/listings/<%= listing._id %>">
           <div class="col">
             <div class="card h-100 shadow-sm border-0">
               <div class="position-relative">
                 <img
-                  src="<%=listing.image.url%>"
+                  src="<%= listing.image.url || 'https://images.unsplash.com/photo-1725120344808-420e96dd8fdf?q=80&w=2026&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' %>"
                   class="card-img-top rounded-top"
                   alt="listing_img"
                   style="height: 200px; object-fit: cover"
                 />
                 <div class="card-img-overlay overlayImg"></div>
-              
               </div>
               <div class="card-body">
-                <h5 class="card-title"><%= listing.title %></h5>
+                <h5 class="card-title Index_title"><%= listing.title %></h5>
                 <p class="card-text">
-                    
-              <div class="containt_description"><%= listing.description %></div>
-                  <span class="badge bg-primary"
-                    ><%= listing.price ? "₹" + listing.price.toLocaleString("en-IN")
-                    : "N/A" %> per guest</span>
+                  <div class="containt_description Index_description"><%= listing.description %></div>
+                  <div class="containt_description Index_location "><%= listing.location %></div>
+                  <div class="containt_description Index_country"><%= listing.country %></div>
+                  <span class="badge bg-primary">
+                    <%= listing.price ? "₹" + listing.price.toLocaleString("en-IN") : "N/A" %> per guest
+                  </span>
                 </p>
               </div>
             </div>
           </div>
-
         </a>
-    
-      <%}%>
+      <% } %>
     </div>
   </div>
 </body>

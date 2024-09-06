@@ -1,4 +1,4 @@
-const data  = [
+const sampleListings = [
   {
     title: "Cozy Beachfront Cottage",
     description:
@@ -77,7 +77,7 @@ const data  = [
       "Spend your days fishing and kayaking on the serene lake. This cozy cabin is perfect for outdoor enthusiasts.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1597910037177-4f1c411a3802?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJlJTIwaG90ZWx8ZW58MHx8MHx8fDA%3D",
+      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
     },
     price: 900,
     location: "Lake Tahoe",
@@ -349,4 +349,4 @@ const data  = [
   },
 ];
 
-module.exports = { data };
+module.exports = { data: sampleListings };

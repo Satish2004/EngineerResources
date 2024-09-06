@@ -1,13 +1,17 @@
-require('dotenv').config()
 const express = require("express");
 const app = express();
 const port = 4000;
+const listings = require("./routes/listing.js");
+const reviews = require("./routes/review.js");
 const mongoose = require("mongoose");
 const Listing = require("./models/listing");
+const Review = require("./models/review");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-
+const { listingSchema, reviewSchema } = require("./schema.js");
+const ExpressError = require("./utils/ExpressError.js");
+const wrapAsync = require("./utils/wrapAsync.js");
 const MONGO_URL = "mongodb://127.0.0.1:27017/wonder";
 
 main()
@@ -25,8 +29,8 @@ async function main() {
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method"));
-app.engine('ejs', ejsMate);
-app.use(express.static(path.join(__dirname , "/public")));
+app.engine("ejs", ejsMate);
+app.use(express.static(path.join(__dirname, "/public")));
 // to parse the data -->
 app.use(express.urlencoded({ extended: true }));
 
@@ -34,59 +38,27 @@ app.get("/", (req, res) => {
   res.send("Welcome to the root");
 });
 
-// =======listing route====
 
-app.get("/listings", async (req, res) => {
-  const allListings = await Listing.find({});
-  res.render("./listings/index.ejs", { allListings });
+
+//listing Index express router//
+
+app.use("/listings", listings);
+
+//Review  express router//
+app.use("/listings/:id/reviews" , reviews);
+
+
+// to show custome erro.ejs
+
+app.all("*", (req, res, next) => {
+  next(new ExpressError(404, "Page Not Found"));
 });
 
-//====New route====
-
-app.get("/listings/new", (req, res) => {
-  res.render("./listings/new.ejs");
+app.use((err, req, res, next) => {
+  let { statusCode = 500, message = "Something Went Wrong" } = err;
+  res.render("./listings/error.ejs", { err });
 });
 
-//====show route====
-app.get("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  const listing = await Listing.findById(id); // Fetch listing from database
-  res.render("./listings/show.ejs", { listing }); // Rendering the template but not passing 'listing'
-});
-
-app.post("/listings", async (req, res) => {
-  let listing = req.body.listing;
-  let new_listing = new Listing(listing);
-  await new_listing.save();
-  res.redirect("/listings");
-});
-
-//edit route
-app.get("/listings/:id/edit", async (req, res) => {
-  let { id } = req.params;
-  const listing = await Listing.findById(id);
-  res.render("./listings/edit.ejs", { listing });
-});
-//update post method
-app.put("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  let updateListing = await Listing.findByIdAndUpdate(id, {
-    ...req.body.listing,
-  });
-  res.redirect(`/listings`);
-});
-
-//delete route
-
-app.delete("/listings/:id", async(req, res)=>{
-  let { id } = req.params;
-  await Listing.findByIdAndDelete(id);
-  res.redirect("/listings");
-
-})
-
-// process.env.PORT-> its help in deployemnt of the project and its enhence the security of the PORT and databases
-
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
   console.log("Listening on port 4000");
 });

@@ -299,23 +299,22 @@ body {
 .Index_title {
   font-size: 1.45rem;
   font-weight: 700;
-  color: #333; 
+  color: #333;
   margin-bottom: 0.5rem;
-  
 }
 
 /* CSS for Index_country */
 .Index_country {
   font-size: 1.875rem;
   font-weight: 500;
-  color: #999; 
+  color: #999;
   margin-bottom: 0.9rem;
 }
 
 /* CSS for Index_location */
 .Index_location {
   font-size: 1.4rem;
-  color: #999; 
+  color: #999;
   margin-bottom: 0.7rem;
   font-weight: 500;
 }
@@ -323,7 +322,50 @@ body {
 /* CSS for Index_description */
 .Index_description {
   font-size: 0.875rem;
-  color: #555; 
+  color: #555;
   margin-bottom: 0.5rem;
   line-height: 1.9;
+}
+.ReviewcardBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  background-color: red;
+}
+
+.reviewDate {
+  margin: 0;
+  text-align: right;
+  display: flex;
+}
+
+.card-body hr {
+  border: none;
+  border-top: 1px solid #ccc; /* Light gray line */
+  margin: 0.5rem 0;
+}
+
+.reviewComment {
+  margin-bottom: 0.5rem;
+}
+
+.cardImg img {
+  border-radius: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+.aligntag {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10%;
+}
+/* MAP */
+
+#map {
+height: 100px;
+width: 100px;
 }

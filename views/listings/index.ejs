@@ -1,17 +1,154 @@
 <% layout('/layouts/boilerplate') -%>
-<body>
-  <div class="container py-5">
+<style>
+#filters{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  background: #eeebeb59;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+
+}
+.filter{
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  margin-left: 20px;
+  opacity: 0.7;
+  border-bottom: 2px solid #eeebeb59;
+
+}
+.filter:hover{
+  opacity: 1;
+  height: 100%;
+  border-bottom: 2px solid #0100005a
+}
+.filter p{
+  font-size: 0.8rem;
+}
+.tax-info{
+display: none;
+color: white;
+cursor: pointer;
+}
+.tax-toggle{
+  /* border: 1px solid rgba(0, 0, 0, 0.138); */
+  border-radius: 10px;
+  height: 3rem;
+  padding: 10px;
+  margin-left: 11rem;
+  cursor: pointer;
+  align-items: center;
+
+}
+@media (min-width: 375px) {
+  .tax-toggle{
+    height: 4rem;
+  }
+  #filters{
+ flex-wrap: wrap;
+ justify-content: center;
+
+
+}
+
+  }
+  @media (min-width: 320px) {
+  .tax-toggle{
+    height: 5rem;
+    margin-top: 12px;
+  }
+  #filters{
+  justify-content: center;
+
+
+}
+
+  }
+</style>
+
+<br>
+<!-- filtering NAvbar -->
+
+<div id="filters">
+  <div class="filter">
+  <div><i class="fa-solid fa-fire"></i></div>
+  <p>  Trending</p>
+  </div>
+  <div class="filter">
+  <div><i class="fa-solid fa-cloud-rain"></i></div>
+  <p> Rainy Cities</p>
+   </div>
+<div class="filter">
+  <div><i class="fa-solid fa-bed"></i></div>
+  <p> Rooms</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-person-swimming"></i></div>
+  <p> Pools</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-mountain-sun"></i></div>
+  <p> Mountain Cities</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-umbrella-beach"></i></div>
+  <p> Beaches</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-snowflake"></i></div>
+  <p> Winter Cities</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-sun"></i></div>
+  <p> Summer Cities</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-volcano"></i></div>
+  <p> Advantures</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-cloud-bolt"></i></div>
+  <p> Cloudy Cities</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-tent"></i></div>
+  <p> Camp</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-cow"></i></div>
+  <p> Farm</p>
+</div>
+
+
+<div class="tax-toggle">
+  <div class="form-check-reverse form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Including All taxes</label>
+  </div>
+</div>
+</div>
+
+
+<div class="container py-5">
+  <% if (allListings.length === 0) { %>
+    <h3 class="text-center">Please add some listings.</h3>
+  <% } else { %>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
-      <% for(let listing of allListings){ %>
+      <% for (let listing of allListings) { %>
         <a class="cardListingTag" href="/listings/<%= listing._id %>">
           <div class="col">
             <div class="card h-100 shadow-sm border-0">
-              <div class="position-relative">
+              <div class="position-relative indexImage">
                 <img
-                  src="<%= listing.image.url || 'https://images.unsplash.com/photo-1725120344808-420e96dd8fdf?q=80&w=2026&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' %>"
+                  src="<%= listing.image.url %>"
                   class="card-img-top rounded-top"
                   alt="listing_img"
-                  style="height: 200px; object-fit: cover"
+                  style="height: 300px; object-fit: cover"
                 />
                 <div class="card-img-overlay overlayImg"></div>
               </div>
@@ -19,10 +156,13 @@
                 <h5 class="card-title Index_title"><%= listing.title %></h5>
                 <p class="card-text">
                   <div class="containt_description Index_description"><%= listing.description %></div>
-                  <div class="containt_description Index_location "><%= listing.location %></div>
+                  <div class="containt_description Index_location"><%= listing.location %></div>
                   <div class="containt_description Index_country"><%= listing.country %></div>
                   <span class="badge bg-primary">
-                    <%= listing.price ? "₹" + listing.price.toLocaleString("en-IN") : "N/A" %> per guest
+                    <%= listing.price ? "₹" + listing.price.toLocaleString("en-IN") : "N/A" %> / night
+                  </span>
+                  <span>
+                    <i class="tax-info">+18% GST</i>
                   </span>
                 </p>
               </div>
@@ -31,5 +171,23 @@
         </a>
       <% } %>
     </div>
-  </div>
-</body>
+  <% } %>
+</div>
+
+  <script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+      let taxInfo = document.getElementsByClassName("tax-info");
+      
+      for (let info of taxInfo) {
+        if (info.style.display !== "inline") {
+          info.style.display = "inline";
+          info.classList.add("badge", "bg-success");
+        } else {
+          info.style.display = "none";
+          info.classList.remove("badge", "bg-success");
+        }
+      }
+    });
+    </script>
+    

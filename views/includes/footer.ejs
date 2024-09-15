@@ -1,3 +1,50 @@
+<style>
+
+    /* Ensure the body and html are at full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the container (or main content) takes the available space */
+.container {
+    flex: 1;
+}
+
+/* Style the footer to be fixed at the bottom */
+footer {
+    background-color: #f8f9fa; /* Background color for footer */
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footerInformation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.finfo_social i {
+    margin-right: 10px;
+}
+
+.f-info_links a {
+    margin-left: 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.f-info_links a:hover {
+    text-decoration: underline;
+}
+
+</style>
+
 <footer>
     <div class="footerInformation">
         <div class="finfo_social">
@@ -6,10 +53,12 @@
             <i class="fa-brands fa-linkedin"></i>
         </div>
         <div class="fInfo_brand">&copy; WonderLust Private Limited</div>
+        <div class="fInfo_brand">By Satish Chandra</div>
+       
         <div class="f-info_links">
+            <a href="https://wwwsatishportfoliocom.netlify.app/">About me</a>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
-            
         </div>
     </div>
-    </footer>
+</footer>

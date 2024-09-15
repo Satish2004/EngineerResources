@@ -2,9 +2,9 @@
 
 <body>
   <div class="row">
-    <div class="col-8 offset-2 needs-validation" novalidate>
+    <div class="col-8 offset-2">
       <h3 class="mt-3">Create A New Listing</h3>
-      <form method="POST" action="/listings">
+      <form method="POST" action="/listings" enctype="multipart/form-data">
         <!-- 1 -->
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -15,14 +15,6 @@
             class="form-control"
             required
           />
-
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-
-          <div class="invalid-feedback">
-            Looks not good!
-          </div>
         </div>
 
         <!-- 2  -->
@@ -39,13 +31,12 @@
         </div>
         <!-- 3 -->
         <div class="mb-3">
-          <label for="image" class="form-label">Image URL</label>
+          <label for="image" class="form-label">Upload Image</label>
           <input
-            type="text"
+            type="file"
             name="listing[image]"
-            placeholder="Enter url or link here"
             class="form-control"
-           
+            required
           />
         </div>
 

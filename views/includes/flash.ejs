@@ -1,0 +1,21 @@
+<!-- success is exist but there is empty means zero therefore && gives us to false  -->
+<% if(success && success.length){ %>
+<div class="content_alert col-7 offset-4">
+    <div class="alert alert-success alert-dismissible fade show col-6" role="alert"><%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+<% } %>
+
+<!-- Error  -->
+<% if(error && error.length){ %>
+    <div class="content_alert col-6 offset-4">
+        
+        <div class="alert alert-danger alert-dismissible fade show col-6" role="alert"><%= error %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    
+    <% } %>
+    

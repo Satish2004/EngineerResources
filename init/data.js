@@ -1,3 +1,5 @@
+// init file means --> initialization
+
 const sampleListings = [
   {
     title: "Cozy Beachfront Cottage",
@@ -150,7 +152,7 @@ const sampleListings = [
     image: {
       filename: "listingimage",
       url: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
-    },
+    }, 
     price: 1200,
     location: "Cotswolds",
     country: "United Kingdom",

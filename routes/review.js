@@ -1,60 +1,41 @@
 const express = require("express");
-const router = express.Router({mergeParams: true});
+const router = express.Router({ mergeParams: true });
 const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const Review = require("../models/review.js");
 const { reviewSchema } = require("../schema.js");
-const Listing = require("../models/listing");  // <- review added in the listing therefore we require
+const Listing = require("../models/listing");
+const { isLoggedIn } = require("../middleware.js");
+const { isReviewAuthor } = require("../middleware.js");
+// Reviews controller---->
+const listingController = require("../controllers/reviews.js");
 
-// schema.js validation server side for reviews
+// Schema.js validation server-side for reviews
 const validateReview = (req, res, next) => {
-  let { error } = reviewSchema.validate(req.body);
+  const { error } = reviewSchema.validate(req.body);
   if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
+    const errMsg = error.details.map((el) => el.message).join(",");
     throw new ExpressError(400, errMsg);
   } else {
     next();
   }
 };
 
-// review  Express Router
-
-// post review route
+// Post review route
+// review validate hone se pahle chekc karawo ki wo logged in hai ki nahi then use aage ki process kro
 router.post(
   "/",
+  isLoggedIn,
   validateReview,
-  wrapAsync(async (req, res) => {
-    // console.log(req.params.id);
-    let Listing = await Listing.findById(req.params.id);
-    let newReview = new Review(req.body.review);
-    Listing.review.push(newReview);
-    await newReview.save();
-    await Listing.save();
-    res.redirect(`/listings/${Listing._id}`);
-  })
+  wrapAsync(listingController.postReviews)
 );
 
-// Review Route
-
-//   router.get("/listings/:id", async (req, res) => {
-//     try {
-//       const listing = await Listing.findById(req.params.id).populate("reviews");
-//       res.render("listing", { listing });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send("Server Error");
-//     }
-//   });
-
-// deete review rout
-
+// Delete review route
 router.delete(
   "/:reviewId",
-  wrapAsync(async (req, res) => {
-    let { id, reviewId } = req.params;
-    await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-    await Review.findByIdAndDelete(reviewId);
-    res.redirect(`/listings/${id}`);
-  })
+  isLoggedIn,
+  isReviewAuthor,
+  wrapAsync(listingController.destroyReviews)
 );
+
 module.exports = router;

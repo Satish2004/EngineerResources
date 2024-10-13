@@ -34,7 +34,7 @@ module.exports.showListings = async (req, res) => {
     .populate("owner"); // Fetch listing from database
 
   if (!listing) {
-    req.flash("error", "Listing You Requested For Does Not Exist!!");
+    req.flash("error", "Post You Requested For Does Not Exist!!");
     return res.redirect("/listings");
   }
   res.render("./listings/show.ejs", { listing });
@@ -61,7 +61,7 @@ module.exports.createListings = async (req, res) => {
   new_listing.owner = req.user._id;
   new_listing.image = { url, filename };
   await new_listing.save();
-  req.flash("success", "Congratulations! New Listing created!");
+  req.flash("success", "Congratulations! New Post created!");
   res.redirect("/listings");
 };
 
@@ -71,7 +71,7 @@ module.exports.editListings = async (req, res) => {
   let { id } = req.params;
   const listing = await Listing.findById(id);
   if (!listing) {
-    req.flash("error", "Sorry This Listing Doesn't Exist!!");
+    req.flash("error", "Sorry This Post Doesn't Exist!!");
     res.redirect("/listings");
   }
   let originalImageUrl = listing.image.url;
@@ -93,7 +93,7 @@ module.exports.updatePostListings = async (req, res) => {
     await listing.save();
   }
 
-  req.flash("success", "Listing Updated!");
+  req.flash("success", "Post Updated!");
   res.redirect(`/listings/${id}`);
 };
 
@@ -101,6 +101,6 @@ module.exports.updatePostListings = async (req, res) => {
 module.exports.deleteListings = async (req, res) => {
   let { id } = req.params;
   await Listing.findByIdAndDelete(id);
-  req.flash("success", "Listing Deleted!");
+  req.flash("success", "Post Deleted!");
   res.redirect("/listings");
 };

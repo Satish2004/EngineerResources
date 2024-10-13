@@ -28,6 +28,11 @@
         margin-bottom: 20px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
       }
+
+      .terms {
+        font-size: 1.3rem;
+        text-decoration:underline;
+      }
       /* p {
         font-size: 1.2rem;
         margin-bottom: 30px;
@@ -47,9 +52,46 @@
   <body>
     <div class="welcomeContainer">
       <div class="welcomeContent">
-        <h2>Welcome to Wonderlust</h2>
+        <h2>Welcome to Engineer resources</h2>
+
+        <div class="term">
+          <b class="terms">Terms and Conditions</b> <br />
+          <b>(1) Accurate Equipment Pricing:</b> The prices of all equipment listed
+          on this platform are verified to ensure accuracy. Users are encouraged
+          to review the details thoroughly before making any transactions. Any
+          discrepancies should be reported immediately. <br> 
+          
+          <b>(2) Vigilance Against Fake IDs:</b> All users must remain cautious of fraudulent activity, including
+          fake profiles or IDs. We prioritize user safety, but each individual
+          is responsible for reporting suspicious activity promptly to ensure a
+          secure environment for everyone. <br>
+         <b>(3) Local Area Usage:</b> This platform is
+          intended for users within the college community. Any attempts to
+          contact individuals outside of the college, particularly for
+          unauthorized purposes, may lead to severe consequences. Users are
+          advised to exercise caution and refrain from engaging in unsafe
+          interactions, which may pose significant risks. By using this
+          platform, users agree to abide by these conditions and understand the
+          importance of maintaining a safe and responsible environment.
+        </div>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+
+          <label class="form-check-label" for="flexCheckDefault">
+            I agree
+            all terms & conditions
+            <br>
+          </label>
+        </div>
+
         <a href="/listings" class="btn btn-dark"
-          >Next <i class="fa-solid fa-arrow-right"></i
+          >Continue <i class="fa-solid fa-arrow-right"></i
         ></a>
       </div>
     </div>

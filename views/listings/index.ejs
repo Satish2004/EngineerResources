@@ -69,10 +69,18 @@ cursor: pointer;
 }
 
   }
+
+  .Index_location, 
+  .Index_country{
+    font-size: 1.2rem;
+    color: rgb(116, 112, 112);
+    line-height: 100%;
+  }
+
 </style>
 
-<br>
-<!-- filtering NAvbar -->
+<!-- <br>
+filtering NAvbar
 
 <div id="filters">
   <div class="filter">
@@ -102,8 +110,8 @@ cursor: pointer;
 <div class="filter">
   <div><i class="fa-solid fa-snowflake"></i></div>
   <p> Winter Cities</p>
-</div>
-<div class="filter">
+</div> -->
+<!-- <div class="filter">
   <div><i class="fa-solid fa-sun"></i></div>
   <p> Summer Cities</p>
 </div>
@@ -122,21 +130,21 @@ cursor: pointer;
 <div class="filter">
   <div><i class="fa-solid fa-cow"></i></div>
   <p> Farm</p>
-</div>
+</div> -->
 
-
+<!-- 
 <div class="tax-toggle">
   <div class="form-check-reverse form-switch">
     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
     <label class="form-check-label" for="flexSwitchCheckDefault">Including All taxes</label>
   </div>
 </div>
-</div>
+</div>  -->
 
 
 <div class="container py-5">
   <% if (allListings.length === 0) { %>
-    <h3 class="text-center">Please add some listings.</h3>
+    <h3 class="text-center">Please Add Your Equipment</h3>
   <% } else { %>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
       <% for (let listing of allListings) { %>
@@ -159,7 +167,7 @@ cursor: pointer;
                   <div class="containt_description Index_location"><%= listing.location %></div>
                   <div class="containt_description Index_country"><%= listing.country %></div>
                   <span class="badge bg-primary">
-                    <%= listing.price ? "₹" + listing.price.toLocaleString("en-IN") : "N/A" %> / night
+                    <%= listing.price ? "₹" + listing.price.toLocaleString("en-IN") : "N/A" %>
                   </span>
                   <span>
                     <i class="tax-info">+18% GST</i>

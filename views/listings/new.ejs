@@ -7,7 +7,7 @@
       <form method="POST" action="/listings" enctype="multipart/form-data">
         <!-- 1 -->
         <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
+          <label for="title" class="form-label"> Your name</label>
           <input
             type="text"
             name="listing[title]"
@@ -19,12 +19,12 @@
 
         <!-- 2  -->
         <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
+          <label for="description" class="form-label">Tell me about your equipment</label>
           <textarea
             class="form-control"
             name="listing[description]"
             id="textarea"
-            placeholder="Enter description here"
+            placeholder="Enter your name , semester etc."
             class="form-control"
             required
           ></textarea>
@@ -55,11 +55,11 @@
 
           <!-- 5 -->
           <div class="mb-3 col-md-8">
-            <label for="country" class="form-label">Country</label>
+            <label for="country" class="form-label">Contact</label>
             <input
               type="text"
               name="listing[country]"
-              placeholder="Ex:India"
+              placeholder="Please Enter Your number or email"
               class="form-control"
               required
             />
@@ -72,7 +72,7 @@
             <input
               type="text"
               name="listing[location]"
-              placeholder="Ex: Chhattisgarh(CG)"
+              placeholder="Enter your location"
               class="form-control"
               required
             />

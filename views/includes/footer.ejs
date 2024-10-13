@@ -48,13 +48,29 @@
 <footer>
   <div class="footerInformation">
     <div class="finfo_social">
-      <a href="https://x.com/i_am_sa30_?t=NHpe5iacqjMxLb2nvbsufA&s=08"><i class="fa-brands fa-square-twitter"></i></a>
-      <a href="https://www.instagram.com/i_am_sa30_?igsh=bXAyNTR6aDN4ZzFq"><i class="fa-brands fa-square-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/satish-chandra-9844b5250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
-      "><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://x.com/i_am_sa30_?t=NHpe5iacqjMxLb2nvbsufA&s=08"
+        ><i class="fa-brands fa-square-twitter"></i
+      ></a>
+      <a href="https://www.instagram.com/i_am_sa30_?igsh=bXAyNTR6aDN4ZzFq"
+        ><i class="fa-brands fa-square-instagram"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/in/satish-chandra-9844b5250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
+      "
+        ><i class="fa-brands fa-linkedin"></i
+      ></a>
     </div>
-    <div class="fInfo_brand">&copy; WonderLust Private Limited</div>
-    <div class="fInfo_brand">By Satish Chandra</div>
+    <!-- <div class="fInfo_brand">&copy; engineer resources</div> -->
+    <div class="fInfo_brand">
+      &copy; <span id="currentYear"></span> &nbsp; engineer resources
+    </div>
+
+    <script>
+      // Get the current year
+      const currentYear = new Date().getFullYear();
+      // Set the inner text of the span to the current year
+      document.getElementById("currentYear").innerText = currentYear;
+    </script>
 
     <div class="f-info_links">
       <a href="https://wwwsatishportfoliocom.netlify.app/">About me</a>

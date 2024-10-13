@@ -6,7 +6,7 @@ module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) {
     // save-> redirect originalURL
     req.session.redirectUrl = req.originalUrl;
-    req.flash("error", "You must be logged in to create listing");
+    req.flash("error", "You must be login to create post");
     return res.redirect("/login");
   }
   next();
@@ -25,7 +25,7 @@ module.exports.isOwner = async(req, res ,next)=>{
   const listing = await Listing.findById(id);
   // Check if the logged-in user is the owner of the listing
   if (!req.user || !listing.owner.equals(req.user._id)) {
-    req.flash("error", "You do not have permission to any operation with this listing.");
+    req.flash("error", "You do not have permission to any operation with this post.");
     return res.redirect(`/listings/${id}`);
   }
   next();

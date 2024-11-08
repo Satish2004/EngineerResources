@@ -89,7 +89,7 @@ For any questions, suggestions, or feedback, feel free to contact the project ma
   - [GitHub](https://github.com/Satish2004)
   - [LinkedIn](https://www.linkedin.com/in/satish-chandra-9844b5250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
   - [Portfolio](https://wwwsatishportfoliocom.netlify.app/)
-  - 
+  
 
 --- 
 

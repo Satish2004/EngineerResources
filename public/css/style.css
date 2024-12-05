@@ -2,6 +2,7 @@
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
+  background: #000;
 }
 .navbar {
   height: 5rem;
@@ -331,7 +332,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
-  background-color: red;
+  background-color: #27c6d5;
 }
 
 .reviewDate {

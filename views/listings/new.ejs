@@ -1,5 +1,9 @@
 <% layout('/layouts/boilerplate') -%>
-
+<style>
+  .boldText {
+    font-weight: 500;
+  }
+</style>
 <body>
   <div class="row">
     <div class="col-8 offset-2">
@@ -7,7 +11,7 @@
       <form method="POST" action="/listings" enctype="multipart/form-data">
         <!-- 1 -->
         <div class="mb-3">
-          <label for="title" class="form-label"> Your name</label>
+          <label for="title" class="form-label boldText">Title</label>
           <input
             type="text"
             name="listing[title]"
@@ -19,7 +23,9 @@
 
         <!-- 2  -->
         <div class="mb-3">
-          <label for="description" class="form-label">Tell me about your equipment</label>
+          <label for="description" class="form-label boldText"
+            >Some equipment description</label
+          >
           <textarea
             class="form-control"
             name="listing[description]"
@@ -31,7 +37,7 @@
         </div>
         <!-- 3 -->
         <div class="mb-3">
-          <label for="image" class="form-label">Upload Image</label>
+          <label for="image" class="form-label boldText">Upload Image</label>
           <input
             type="file"
             name="listing[image]"
@@ -43,7 +49,7 @@
         <!-- 4 -->
         <div class="row row g-3">
           <div class="mb-3 col-md-4">
-            <label for="price" class="form-label">Price</label>
+            <label for="price" class="form-label boldText">Price</label>
             <input
               type="number"
               name="listing[price]"
@@ -55,7 +61,7 @@
 
           <!-- 5 -->
           <div class="mb-3 col-md-8">
-            <label for="country" class="form-label">Contact</label>
+            <label for="country" class="form-label boldText">Contact</label>
             <input
               type="text"
               name="listing[country]"
@@ -68,7 +74,7 @@
           <!-- 6 -->
 
           <div class="mb-3">
-            <label for="location" class="form-label">Location</label>
+            <label for="location" class="form-label boldText">Location</label>
             <input
               type="text"
               name="listing[location]"

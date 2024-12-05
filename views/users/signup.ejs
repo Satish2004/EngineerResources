@@ -1,10 +1,28 @@
 <%- layout('/layouts/boilerplate') -%>
+<style>
+  .btn-login {
+    background-color: #27c6d5;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    margin-right: 8px;
+  }
+  .btn-login:hover {
+    background-color: #2f9099d0;
+  }
+  .boldText{
+    font-weight: 500;
+  }
+</style>
 <div class="row mt-3">
-  <h1 class="col-6 offset-4">Sign-Up </h1>
+  <h1 class="col-6 offset-4 mb-5">Sign-Up</h1>
   <div class="col-6 offset-3">
     <form action="/signup" method="POST" class="needs-validation" novalidate>
       <div class="mb-3">
-        <label for="username" class="form-label"><i class="fa-solid fa-user"></i> Username</label>
+        <label for="username" class="form-label boldText"
+          ><i class="fa-solid fa-user"></i> Username</label
+        >
         <input
           type="text"
           id="username"
@@ -12,30 +30,33 @@
           class="form-control"
           required
         />
-        <div class="valid-feedback">
-          valid
-          </div>
-      <div class="mb-3">
-        <label for="email" class="form-label"><i class="fa-solid fa-envelope"></i> Email-id</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="form-control"
-          required
-        />
+        <div class="valid-feedback">valid</div>
+        <div class="mb-3">
+          <label for="email" class="form-label boldText"
+            ><i class="fa-solid fa-envelope"></i> Email-id</label
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label boldText"
+            ><i class="fa-solid fa-lock"></i> Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-login">Sign-Up</button>
       </div>
-      <div class="mb-3">
-        <label for="password" class="form-label"><i class="fa-solid fa-lock"></i> Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          class="form-control"
-          required
-        />
-      </div>
-      <button type="submit" class="btn btn-outline-success">Sign-Up</button>
     </form>
   </div>
 </div>

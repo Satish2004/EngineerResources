@@ -1,4 +1,19 @@
 <% layout('/layouts/boilerplate') -%>
+<style>
+    .btn-buy {
+        background-color: #27c6d5;
+        color: white;
+        margin-left: 8px;
+        border-radius: 25px;
+        padding: 0 1rem 0 1rem;
+        border:none;
+        padding:5px 7px;
+      }
+      .btn-buy:hover {
+        background-color: #2f9099d0;
+      }
+
+</style>
 <script>
   const mapToken = "<%= process.env.MAP_KEY %>";
 </script>
@@ -110,9 +125,14 @@
       <% } %>
 
       <hr />
+      <% if(currUser && !listing.owner._id.equals(currUser._id) || !currUser) { %>
+        
+        <button type="button" class="btn-buy" id="continueButton">Buy Now</button>
+      </a>
+      <% } %>
       <% if(listing.reviews.length>0){ %>
-      <div class="row">
-        <p><b>All Reviews</b></p>
+      <div class="row mt-3 mb-3">
+        <h4 class="mb-3"><b>All Reviews</b></h4>
         <% for(let review of listing.reviews) { %>
         <div class="card col-5 ms-3 mb-3 ReviewcardBody" style="width: 18rem">
           <div class="card-body">

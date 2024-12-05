@@ -1,11 +1,9 @@
-<%- layout('/layouts/boilerplate') -%>
-
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wonderlust</title>
+    <title>MTRN-Terms and Conditions</title>
     <style>
       .welcomeContainer {
         display: flex;
@@ -31,69 +29,256 @@
 
       .terms {
         font-size: 1.3rem;
-        text-decoration:underline;
+        text-decoration: underline;
       }
-      /* p {
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #555;
+      }
+      .form-check {
+        margin-top: 20px;
+      }
+      .form-check-label {
         font-size: 1.2rem;
-        margin-bottom: 30px;
-        color: #555;
-      } */
-
-      /* .image-container {
-        margin-top: 30px;
       }
-      .image-container img {
-        max-width: 80%;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      } */
+      .welcome {
+        background: #2a2a3b;
+        color: #fff;
+      }
     </style>
   </head>
-  <body>
+  <body class="welcome">
     <div class="welcomeContainer">
-      <div class="welcomeContent">
-        <h2>Welcome to Engineer resources</h2>
+      <div
+        class="welcomeContent"
+        style="background-color: #1e1e2f; padding: 20px; border-radius: 3%"
+      >
+        <h2>Welcome to Multifaceted Technical Resources Network</h2>
 
         <div class="term">
           <b class="terms">Terms and Conditions</b> <br />
-          <b>(1) Accurate Equipment Pricing:</b> The prices of all equipment listed
-          on this platform are verified to ensure accuracy. Users are encouraged
-          to review the details thoroughly before making any transactions. Any
-          discrepancies should be reported immediately. <br> 
-          
-          <b>(2) Vigilance Against Fake IDs:</b> All users must remain cautious of fraudulent activity, including
-          fake profiles or IDs. We prioritize user safety, but each individual
-          is responsible for reporting suspicious activity promptly to ensure a
-          secure environment for everyone. <br>
-         <b>(3) Local Area Usage:</b> This platform is
-          intended for users within the college community. Any attempts to
-          contact individuals outside of the college, particularly for
-          unauthorized purposes, may lead to severe consequences. Users are
-          advised to exercise caution and refrain from engaging in unsafe
-          interactions, which may pose significant risks. By using this
-          platform, users agree to abide by these conditions and understand the
-          importance of maintaining a safe and responsible environment.
+          <b>(1) Accurate Equipment Pricing:</b> The prices of all equipment
+          listed on this platform are verified to ensure accuracy. Users are
+          encouraged to review the details thoroughly before making any
+          transactions. Any discrepancies should be reported immediately. <br />
+          <b>(2) Vigilance Against Fake IDs:</b> All users must remain cautious
+          of fraudulent activity, including fake profiles or IDs. We prioritize
+          user safety, but each individual is responsible for reporting
+          suspicious activity promptly to ensure a secure environment for
+          everyone. <br />
+          <b>(3) Local Area Usage:</b> This platform is intended for users
+          within the college community. Any attempts to contact individuals
+          outside of the college, particularly for unauthorized purposes, may
+          lead to severe consequences. Users are advised to exercise caution and
+          refrain from engaging in unsafe interactions, which may pose
+          significant risks. By using this platform, users agree to abide by
+          these conditions and understand the importance of maintaining a safe
+          and responsible environment.
         </div>
 
         <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-
-          <label class="form-check-label" for="flexCheckDefault">
-            I agree
-            all terms & conditions
-            <br>
+          <input class="form-check-input" type="checkbox" id="termsCheckbox" />
+          <label class="form-check-label" for="termsCheckbox">
+            I agree to all terms & conditions
           </label>
         </div>
 
-        <a href="/listings" class="btn btn-dark"
-          >Continue <i class="fa-solid fa-arrow-right"></i
-        ></a>
+        <a
+          href="/listings"
+          class="btn btn-dark"
+          id="continueButton"
+          onclick="return validateCheckbox()"
+        >
+          Continue <i class="fa-solid fa-arrow-right"></i>
+        </a>
       </div>
     </div>
+
+    <script>
+      function validateCheckbox() {
+        const checkbox = document.getElementById("termsCheckbox");
+        if (!checkbox.checked) {
+          alert(
+            "You must agree to the terms and conditions before continuing..."
+          );
+          return false; // Prevent navigation
+        }
+        return true;
+      }
+    </script>
   </body>
+</html> -->
+
+
+
+<!-- This is new code  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTRN-Welcome</title>
+</head>
+<style>
+  /* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/eb/Rungta_College_Campus.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.welcome-container {
+  height: 100vh;
+  background-image: url('background-image.jpg'); /* Replace with your background image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7); /* Slight dark background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color:#27c6d5;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.terms {
+  margin-bottom: 20px;
+}
+
+a {
+  color: #27c6d5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.checkbox-label {
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-label input {
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #27c6d5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:enabled {
+  background-color: #e04e29;
+}
+
+</style>
+<body>
+
+  <div class="welcome-container">
+    <div class="overlay">
+      <div class="content">
+        <h1>Welcome to MTRN</h1>
+        <p>This platform is developed by Rungta's College Students.</p>
+        <p>Before proceeding, please read and agree to our terms and conditions.</p>
+
+        <div class="terms">
+          <p>By clicking "Continue", you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+        </div>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="agreeCheckbox" />
+          I agree to the terms and conditions
+        </label>
+
+        <button id="continueButton" disabled>Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to enable/disable the "Continue" button based on checkbox state
+const checkbox = document.getElementById("agreeCheckbox");
+const continueButton = document.getElementById("continueButton");
+
+checkbox.addEventListener("change", () => {
+  // Enable the continue button if checkbox is checked
+  if (checkbox.checked) {
+    continueButton.disabled = false;
+  } else {
+    continueButton.disabled = true;
+  }
+});
+
+// Redirect to listings page when continue button is clicked
+continueButton.addEventListener("click", () => {
+  window.location.href = "/listings";  // Redirect to listings page
+});
+
+  </script>
+</body>
 </html>
+

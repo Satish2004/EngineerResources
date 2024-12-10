@@ -1,4 +1,4 @@
-# Engineers Resource
+# Engineers Resource.
 
 **Engineers Resource** is a full-stack MERN (MongoDB, Express, React, Node.js) application with EJS templates, designed to help students in a specific area buy and sell educational resources. Similar to OLX, this platform is tailored for engineering students to trade essential tools, like mini-drafters, calculators, notes, and other study materials. The app simplifies access to resources for new students and helps outgoing students sell items they no longer need.
 
